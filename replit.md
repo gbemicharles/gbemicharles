@@ -29,5 +29,8 @@ The project is configured for **static** deployment on Replit.
 - Public directory: `dist`
 - Click **Publish** in the Replit UI to get a shareable `*.replit.app` URL.
 
+## Analytics
+Cloudflare Web Analytics is integrated (free, no cookies). See `ANALYTICS_SETUP.md` for the one-time token setup. After setup, stats are visible at https://dash.cloudflare.com → Web Analytics.
+
 ## User preferences
 - Keep existing project structure and stack.

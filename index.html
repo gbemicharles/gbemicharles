@@ -10,6 +10,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- =====================================================
+         ANALYTICS — Cloudflare Web Analytics (free, no cookies)
+         
+         HOW TO ACTIVATE (one-time, ~2 minutes):
+         1. Go to https://cloudflare.com and create a free account
+         2. In the left sidebar click "Web Analytics"
+         3. Click "Add a site" → enter your portfolio URL
+         4. Copy the token value from the script Cloudflare gives you
+         5. Replace  YOUR_CLOUDFLARE_BEACON_TOKEN  below with that token
+         6. Run `npm run build` and redeploy
+         
+         After that you can check visitor stats any time at:
+           https://dash.cloudflare.com → Web Analytics
+         No code changes ever needed again.
+         ===================================================== -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}'
+    ></script>
   </head>
   <body>
     <div id="root"></div>
