@@ -68,6 +68,8 @@
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .info-val:hover {

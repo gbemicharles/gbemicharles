@@ -214,3 +214,34 @@
     font-size: 2.75rem;
   }
 }
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-name {
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-typing-container {
+    font-size: 1.15rem;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

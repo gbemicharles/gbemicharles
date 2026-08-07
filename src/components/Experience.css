@@ -146,4 +146,22 @@
     margin-left: 0.5rem;
     padding: 1.25rem;
   }
+
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .timeline-role {
+    font-size: 1.1rem;
+  }
+
+  .timeline-company {
+    font-size: 0.9rem;
+  }
+
+  .timeline-period {
+    font-size: 0.78rem;
+  }
 }
