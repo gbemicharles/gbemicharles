@@ -1,0 +1,149 @@
+.experience-section {
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  max-width: 850px;
+  margin: 0 auto;
+  padding-left: 2.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-icon-box {
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.timeline-icon.work {
+  color: var(--accent-cyan);
+}
+
+.timeline-icon.education {
+  color: var(--accent-purple);
+}
+
+.timeline-content {
+  padding: 1.75rem;
+  margin-left: 1rem;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-period {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+}
+
+.timeline-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+
+  &.full-time {
+    background: var(--accent-cyan-glow);
+    color: var(--accent-cyan);
+  }
+
+  &.contract {
+    background: var(--accent-emerald-glow);
+    color: var(--accent-emerald);
+  }
+
+  &.web3 {
+    background: var(--accent-purple-glow);
+    color: var(--accent-purple);
+  }
+
+  &.education {
+    background: var(--accent-purple-glow);
+    color: var(--accent-purple);
+  }
+}
+
+.timeline-role {
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-company {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-skill-pill {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-icon-box {
+    left: -1.5rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .timeline-content {
+    margin-left: 0.5rem;
+    padding: 1.25rem;
+  }
+}
