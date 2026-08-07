@@ -21,6 +21,13 @@ The dev server starts on port 5000. Use the **Dev Server** workflow in Replit to
 ```bash
 npm run build
 ```
+Output goes to `dist/`.
+
+## Deployment
+The project is configured for **static** deployment on Replit.
+- Build command: `npm run build`
+- Public directory: `dist`
+- Click **Publish** in the Replit UI to get a shareable `*.replit.app` URL.
 
 ## User preferences
 - Keep existing project structure and stack.
