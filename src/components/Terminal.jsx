@@ -11,8 +11,13 @@ export default function Terminal() {
   ]);
   const [inputVal, setInputVal] = useState('');
   const terminalEndRef = useRef(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history]);
 
