@@ -34,12 +34,34 @@ export default function Hero() {
   const [tonPrice, setTonPrice] = useState(6.85);
 
   useEffect(() => {
-    const priceInterval = setInterval(() => {
-      setTonPrice((prev) => {
-        const delta = (Math.random() - 0.5) * 0.08;
-        return parseFloat((prev + delta).toFixed(2));
-      });
-    }, 10000);
+    const fetchPrice = async () => {
+      try {
+        // Try CoinGecko
+        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=the-open-network&vs_currencies=usd');
+        if (res.ok) {
+          const data = await res.json();
+          if (data['the-open-network'] && data['the-open-network'].usd) {
+            setTonPrice(data['the-open-network'].usd);
+            return;
+          }
+        }
+        
+        // Fallback to Coinpaprika
+        const fallbackRes = await fetch('https://api.coinpaprika.com/v1/tickers/ton-toncoin');
+        if (fallbackRes.ok) {
+          const fallbackData = await fallbackRes.json();
+          if (fallbackData.quotes && fallbackData.quotes.USD && fallbackData.quotes.USD.price) {
+            setTonPrice(parseFloat(fallbackData.quotes.USD.price.toFixed(2)));
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch real-time TON price:', err);
+      }
+    };
+
+    fetchPrice();
+    // Poll every 60 seconds (60000ms) to respect rate limits
+    const priceInterval = setInterval(fetchPrice, 60000);
     return () => clearInterval(priceInterval);
   }, []);
 
