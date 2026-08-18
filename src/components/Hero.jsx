@@ -31,6 +31,18 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [text, isDeleting, phraseIndex]);
 
+  const [tonPrice, setTonPrice] = useState(6.85);
+
+  useEffect(() => {
+    const priceInterval = setInterval(() => {
+      setTonPrice((prev) => {
+        const delta = (Math.random() - 0.5) * 0.08;
+        return parseFloat((prev + delta).toFixed(2));
+      });
+    }, 10000);
+    return () => clearInterval(priceInterval);
+  }, []);
+
   const handleCelebration = () => {
     confetti({
       particleCount: 80,
@@ -48,9 +60,28 @@ export default function Hero() {
       <div className="container hero-container">
         {/* Left Column: Headline & Intro */}
         <div className="hero-content">
-          <div className="status-badge">
-            <span className="status-dot" />
-            <span className="status-text">{personalInfo.status}</span>
+          <div className="hero-status-row">
+            <div className="status-badge">
+              <span className="status-dot" />
+              <span className="status-text">{personalInfo.status}</span>
+            </div>
+
+            <div className="web3-ticker">
+              <span className="ticker-item">
+                <span className="ticker-label">TON Network:</span>
+                <span className="ticker-val success">Optimal</span>
+              </span>
+              <span className="ticker-divider">|</span>
+              <span className="ticker-item">
+                <span className="ticker-label">Gas Fee:</span>
+                <span className="ticker-val text-cyan">Low (0.003 TON)</span>
+              </span>
+              <span className="ticker-divider">|</span>
+              <span className="ticker-item">
+                <span className="ticker-label">TON Price:</span>
+                <span className="ticker-val font-mono">${tonPrice}</span>
+              </span>
+            </div>
           </div>
 
           <h1 className="hero-name">
