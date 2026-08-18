@@ -44,6 +44,7 @@ export default function Projects() {
                   src={project.image}
                   alt={project.title}
                   className="project-image"
+                  loading="lazy"
                 />
                 <div className="project-overlay">
                   <button
