@@ -171,7 +171,7 @@ export const experienceTimeline = [
 ];
 
 export const terminalCommands = {
-  help: "Available commands:\n  whoami      - Brief summary of Gbemicharles\n  skills      - List website, bot, & app development skills\n  projects    - View websites, bots, and mini-apps built\n  experience  - View my timeline in the ecosystem\n  contact     - Display contact info & domains\n  clear       - Clear terminal output\n  sudo hire   - Unlock recruiter contact protocol!",
+  help: "Available commands:\n  whoami      - Brief summary of Gbemicharles\n  skills      - List website, bot, & app development skills\n  projects    - View websites, bots, and mini-apps built\n  experience  - View my timeline in the ecosystem\n  contact     - Display contact info & domains\n  tonscan     - Scan gbemicharles.ton wallet on blockchain\n  matrix      - Display falling developer code stream\n  game        - Play terminal mini-game selector\n  clear       - Clear terminal output\n  sudo hire   - Unlock recruiter contact protocol!",
   whoami: "Gbemicharles | Full-Stack Web & App Developer specializing in websites, Telegram bots, mini-apps, and AI integrations.",
   skills: "Web & Apps: Website & webpage design, Telegram Mini-Apps (TMA), React, TypeScript, Next.js, Node.js, Express, CSS\nBots & AI:  Telegram Bot API, OpenAI API integration, Automation bots, LLMs, FastAPI, Python\nDatabases:  PostgreSQL, MongoDB, Redis, Docker, Git CI/CD",
   projects: "1. Pedro on TON (Web3 & TON)\n2. TON Intelligence Quotient (TONIQ) (Mini Apps)\n3. Mediaroom Bot (AI & Bots)\n4. Gramfinity (Web3 & DEX)",

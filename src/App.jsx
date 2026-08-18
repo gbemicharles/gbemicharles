@@ -8,6 +8,7 @@ import Terminal from './components/Terminal';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import TelegramWidget from './components/TelegramWidget';
 
 export default function App() {
   const [currentTheme, setCurrentTheme] = useState('dark');
@@ -29,6 +30,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <TelegramWidget />
     </div>
   );
 }

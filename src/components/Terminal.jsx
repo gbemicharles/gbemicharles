@@ -26,7 +26,7 @@ export default function Terminal() {
     if (!cmd) return;
 
     setHistory((prevHistory) => {
-      const newHistory = [...prevHistory, { type: 'input', text: cmd }];
+      const newHistory = [...prevHistory, { type: 'input', text: cmdText }];
 
       if (cmd === 'clear') {
         return [];
@@ -37,6 +37,38 @@ export default function Terminal() {
         newHistory.push({
           type: 'output',
           text: '🎉 RECRUITER MODE UNLOCKED! Direct contact protocol initiated. Scroll down to the contact section or email lordgbemicharles@gmail.com!'
+        });
+      } else if (cmd.startsWith('tonscan')) {
+        const address = cmd.split(' ')[1] || 'gbemicharles.ton';
+        newHistory.push({
+          type: 'output',
+          text: `🔍 TONSCAN RESOLVER [${address}]...\n` +
+                `--------------------------------------------------\n` +
+                `• Owner Address: Gbemicharles\n` +
+                `• Balance:       15,482.50 TON ($112,248.12 USD)\n` +
+                `• Ecosystem Jettons:\n` +
+                `   - GRAM:       1,842,500.00 GRAM\n` +
+                `   - NOT:        452,000.00 NOT\n` +
+                `   - PEDRO:      10,000,000.00 PEDRO\n` +
+                `• Active DApps:  Gramfinity Trade (v2), TONIQ DeFi, MediaRoom OS\n` +
+                `• Status:        Contract Verified (Optimal Gas)`
+        });
+      } else if (cmd === 'matrix') {
+        newHistory.push({
+          type: 'output',
+          text: `⚡ SYSTEM CODES DEPLOYED:\n` +
+                `01010110 01100101 01110010 01111001 (Very)\n` +
+                `01010111 01100101 01100010 00110011 (Web3)\n` +
+                `01000111 01100010 01100101 01101101 (Gbem)\n` +
+                `01101001 01100011 01101000 01100001 (icha)\n` +
+                `01110010 01101100 01100101 01110015 (rles)\n` +
+                `System status: ONLINE (TypeScript/Rust/Solidity compiler operational)`
+        });
+      } else if (cmd === 'game') {
+        newHistory.push({
+          type: 'output',
+          text: `🎮 RETRO TERMINAL CLICKER DEPLOYED!\n` +
+                `Type "sudo hire" to execute the ultimate recruit combo and release the grand prize confetti stream!`
         });
       } else if (terminalCommands[cmd]) {
         newHistory.push({ type: 'output', text: terminalCommands[cmd] });
