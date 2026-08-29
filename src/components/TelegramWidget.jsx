@@ -204,7 +204,7 @@ export default function TelegramWidget() {
           {/* Header */}
           <div className="telegram-chat-header">
             <div className="telegram-avatar-container">
-              <div className="telegram-avatar">GC</div>
+              <img src="/images/ai-avatar.jpg" alt="Gbemicharles AI Avatar" className="telegram-avatar-img" />
               <span className="online-indicator"></span>
             </div>
             <div className="telegram-header-info">

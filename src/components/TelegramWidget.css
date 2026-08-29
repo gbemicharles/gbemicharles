@@ -95,19 +95,16 @@
 
 .telegram-avatar-container {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.telegram-avatar {
+.telegram-avatar-img {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0284c7, #0369a1);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.9rem;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .online-indicator {
