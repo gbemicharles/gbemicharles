@@ -389,3 +389,21 @@
     height: 480px;
   }
 }
+
+/* Chat bubble links */
+.chat-link {
+  color: #38bdf8;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.telegram-bubble-wrapper.user .chat-link {
+  color: #a5f3fc;
+}
+
+.chat-link:hover {
+  color: #7dd3fc;
+  text-decoration: none;
+}

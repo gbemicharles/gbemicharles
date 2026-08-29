@@ -121,6 +121,69 @@ export default function TelegramWidget() {
     }, 1500);
   };
 
+  const parseMessageText = (text) => {
+    if (!text) return '';
+    const lines = text.split('\n');
+    return lines.map((line, lineIdx) => {
+      const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+      const parts = line.split(/(\s+)/);
+      const lineContent = parts.map((part, partIdx) => {
+        const cleanWord = part.trim();
+        if (emailRegex.test(cleanWord)) {
+          const email = cleanWord.replace(/[.,]$/, "");
+          const trailingPunct = cleanWord.substring(email.length);
+          return (
+            <React.Fragment key={partIdx}>
+              <a href={`mailto:${email}`} className="chat-link" target="_blank" rel="noreferrer">
+                {email}
+              </a>
+              {trailingPunct}
+            </React.Fragment>
+          );
+        }
+        if (cleanWord.includes('t.me/')) {
+          const urlStr = cleanWord.replace(/[.,]$/, "");
+          const trailingPunct = cleanWord.substring(urlStr.length);
+          const fullUrl = urlStr.startsWith('http') ? urlStr : `https://${urlStr}`;
+          return (
+            <React.Fragment key={partIdx}>
+              <a href={fullUrl} className="chat-link" target="_blank" rel="noreferrer">
+                {urlStr}
+              </a>
+              {trailingPunct}
+            </React.Fragment>
+          );
+        }
+        if (cleanWord.startsWith('@')) {
+          const usernameWithPunct = cleanWord.substring(1);
+          const username = usernameWithPunct.replace(/[.,]$/, "");
+          const trailingPunct = usernameWithPunct.substring(username.length);
+          const url = username.toLowerCase() === 'gbemicharles_'
+            ? `https://x.com/${username}`
+            : `https://t.me/${username}`;
+          return (
+            <React.Fragment key={partIdx}>
+              <a href={url} className="chat-link" target="_blank" rel="noreferrer">
+                @{username}
+              </a>
+              {trailingPunct}
+            </React.Fragment>
+          );
+        }
+        if (cleanWord.startsWith('**') && cleanWord.endsWith('**')) {
+          return <strong key={partIdx}>{cleanWord.slice(2, -2)}</strong>;
+        }
+        return part;
+      });
+      return (
+        <React.Fragment key={lineIdx}>
+          {lineContent}
+          {lineIdx < lines.length - 1 && <br />}
+        </React.Fragment>
+      );
+    });
+  };
+
   return (
     <div className="telegram-widget-container">
       {/* Floating Trigger Button */}
@@ -158,7 +221,7 @@ export default function TelegramWidget() {
             {messages.map((msg) => (
               <div key={msg.id} className={`telegram-bubble-wrapper ${msg.sender}`}>
                 <div className="telegram-bubble">
-                  <p className="bubble-text">{msg.text}</p>
+                  <p className="bubble-text">{parseMessageText(msg.text)}</p>
                   <span className="bubble-time">
                     {msg.time}
                     {msg.sender === 'user' && <CheckCheck size={12} className="check-double" />}
